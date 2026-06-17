@@ -1,11 +1,11 @@
 # Day 1 — Server Basics
-> **Module Level:** Beginner &nbsp;|&nbsp; **Duration:** 1.5 hours &nbsp;|&nbsp; **Track:** Server Hardware Training
+> **Module Level:** Beginner &nbsp;|&nbsp; **Track:** Server Hardware Training
 ---
 ## At a Glance
-| # | Topic | Time | Focus ||---|---|---:|---|| 1.1 | What Is a Server | 20 min | Concept & roles || 1.2 | Server Form Factors | 30 min | Tower / Rack / Blade || 1.3 | On-Prem vs Cloud Hardware View | 15 min | Where hardware lives || 1.4 | Inside the Server: Hardware Components | 25 min | Tour of internal parts |
+| # | Topic | Focus ||---|---|---|| 1.1 | What Is a Server | Concept & roles || 1.2 | Server Form Factors | Tower / Rack / Blade || 1.3 | On-Prem vs Cloud Hardware View | Where hardware lives || 1.4 | Inside the Server: Hardware Components | Tour of internal parts |
 **Objective:** Understand what a server is, how it differs from a desktop, and recognize the major physical form factors.
 ---
-## Topic 1.1 — What Is a Server (20 min)
+## Topic 1.1 — What Is a Server
 A **server** is a computer dedicated to providing services (compute, storage, applications) to other machines called **clients**, usually over a network. Unlike a desktop built for one interactive user, a server is built for **24x7 uptime, redundancy, remote management, and high I/O**.
 ### The Client-Server Model
 ```mermaidflowchart LR    C1[Client - Laptop]    C2[Client - Phone]    C3[Client - Desktop]    NET((Network))    SRV[Server]    C1 -->|Request| NET    C2 -->|Request| NET    C3 -->|Request| NET    NET --> SRV    SRV -->|Response| NET```
@@ -15,7 +15,7 @@ A **server** is a computer dedicated to providing services (compute, storage, ap
 ```mermaidmindmap  root((Server Roles))    Web Server    Database Server    File Server    Application Server    Virtualization Host    Domain Controller```
 > **Image placeholder:** `assets/server-hardware/day1-datacenter.jpg` — a photo of a real data center rack row.
 ---
-## Topic 1.2 — Server Form Factors (30 min)
+## Topic 1.2 — Server Form Factors
 The three main physical formats. Each trades off **density, scalability, cost, and cooling**.
 ```mermaidflowchart TD    F[Server Form Factors]    F --> T[Tower]    F --> R[Rack]    F --> B[Blade]    T --> T1[Looks like a desktop]    T --> T2[Small office, low density]    R --> R1[19-inch rack mounted]    R --> R2[Measured in U - 1U = 1.75 in]    B --> B1[Modular blades in a chassis]    B --> B2[Shared power, cooling, network]```
 ### Comparison
@@ -25,13 +25,13 @@ A rack is **19 inches** wide and measured vertically in **U**, where **1U = 1.75
 ```mermaidflowchart TB    subgraph RACK[19-inch Rack]        direction TB        U42[42U ... top]        S2[2U Server]        S1[1U Server]        U1[1U ... bottom]    end```
 > **Image placeholder:** `assets/server-hardware/day1-formfactors.png` — side-by-side tower, rack, and blade photos.
 ---
-## Topic 1.3 — On-Prem vs Cloud Hardware View (15 min)
+## Topic 1.3 — On-Prem vs Cloud Hardware View
 Even in cloud-first teams, the same hardware concepts (CPU, RAM, storage, network) exist underneath the abstraction.
 ```mermaidflowchart LR    subgraph OnPrem[On-Premises]        A[You own the hardware]        B[Your data center]    end    subgraph Cloud[Cloud / IaaS]        C[Rent virtual machines]        D[Provider owns hardware]    end    subgraph Hybrid[Hybrid]        E[Mix of both]    end    OnPrem --- Hybrid --- Cloud```
 | Model | Who Owns Hardware | You Manage | Hardware Literacy Needed? ||---|---|---|---|| On-Prem | You | Everything | Yes || Cloud (IaaS) | Provider | OS & apps | Yes (it still maps to real hardware) || Hybrid | Both | Shared | Yes |
 > **Key takeaway:** A cloud VM with "8 vCPU, 32 GB RAM, SSD" maps directly to the physical CPU, memory, and storage concepts covered in this course.
 ---
-## Topic 1.4 — Inside the Server: Hardware Components (25 min)
+## Topic 1.4 — Inside the Server: Hardware Components
 Open a rack server and you will find a set of well-organized components. This is a **first-look tour** — each part is studied in depth on later days, but a new joiner should be able to recognize every item on sight.
 ### Internal Layout (Front to Back)
 ```mermaidflowchart LR    subgraph CHASSIS[Rack Server Chassis]        direction LR        FRONT[Front: Hot-swap Drive Bays + Backplane]        MID[Middle: Fans + CPU + Memory + Motherboard]        REAR[Rear: PSUs + PCIe Slots + I/O + Mgmt Port]    end    FRONT --> MID --> REAR```
